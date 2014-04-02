@@ -1,0 +1,225 @@
+	<% section = "view_project" %>
+	<% include data/project_data.js %>
+	<% data = projectData[project_id]; 
+	   title = data.title; %>
+	<% include partials/header %> 
+<div id="main_wrapper">
+	<!-- City Skyline -->
+	<div id="skyline"></div>
+	<div id="skyline_bottom"></div>
+	<!------------------>
+	
+	<div id="main_content" class="pure-g-r">
+		<div class="section_header pure-g-r pure-u-1-1">
+		
+			<div class="section_title pure-u-16-24">
+			<!-- POPULATE TITLE BAR INFO -->
+				<p <%= data.title.length > 26 ? "class='smaller_title_1'" :"" %>>
+					<%= data.title %>
+				</p>
+				<% for(var i = 0; i < data.platforms.length; i++) { %>
+				<div class='p_icon p_<%=data.platforms[i]%>'></div> <% } %>
+			</div>
+			<!-- STORE LINKS -->
+			<div id="store_list" class="pure-u-7-24">
+			<%  if(data.stores)
+				{ 		
+					if(data.stores.amazon) 
+					{ %><a href="<%= data.stores.amazon %>"><div class="store_amazon"></div></a><% }
+					if(data.stores.gplay) 
+					{ %><a href="<%= data.stores.gplay %>"><div class="store_gplay"></div></a><% } 
+				} 
+			%>
+			</div>
+			
+		</div>
+		<div class="pure-u-1-24"></div>
+		<!-- Left Info -->
+		<div class="section_content project_info_box pure-u-22-24 pure-g-r">
+			<div class="pure-u-12-24" id="left_info">
+				<!-- Main Description of Project -->
+				<div id="project_desc" class="project_section section_content">
+					<%= data.description %>
+				</div>
+				<!--------------------------------->
+
+				<!---- Technologies Section ------->
+				<div class="project_section" id="techs_section">
+					<div class="project_section_title">
+						Technologies
+					</div>
+					<div id="project_tech" class="section_content">
+						<%= data.technologies %>
+					</div>
+				</div>
+				<!---------------------------------->
+
+				<!----- Platforms Section ------>
+				<div class="project_section" id="platforms_section">
+					<div class="project_section_title">
+						Platforms
+					</div>
+					<div id="project_platforms" class="section_content">
+					<%
+						platformTxt = [];
+						for(var i = 0, n = data.platformtxt.length; i < n; i++)
+						{
+							%><%= data.platformtxt[i] %>
+							<% if(i < (n - 1)) 
+							{ %><br/><% } %>
+					<%  } 
+					%>
+					</div>
+				</div>
+				<!------------------------------>
+			</div>
+			<!----------------------------->
+
+			<div class="pure-u-3-24"></div>
+			<!-- Right Info -->
+			<div class="pure-u-9-24" id="right_info">
+				<!-- Screenshots Section -->
+				<div class="project_section" id="screens_section">
+				<% if(data.screenshots && data.screenshots.length > 0)
+					{%>
+					<div class="project_section_title">
+						Screenshots
+					</div>
+					<div id="screens_container" class="section_content">
+					<div id="project_screens" class="section_content">
+					<% 	for(var n=data.screenshots.length, i=0; i < n; i++)
+						{
+							screenData = data.screenshots[i];
+							
+							%><img src="<%= screenData.url %>" class="screenshot_thumb" title="<%=screenData.desc %>"  screenIndex=<%= i %> id="screenshot_thumb_<%= i %>" />
+					<%	}  %>
+					
+					</div>
+					<div id="screens_overlay_l"></div>
+					<div id="screens_overlay_r"></div>
+				</div>
+				<%}%>
+				</div>
+				<!-------------------->
+
+				<!-- Videos Section -->
+				<% if(data.videos && data.videos.length > 0)
+					{%>
+				<div class="project_section" id="video_section">
+					<div class="project_section_title">
+						Videos
+					</div>
+						<div id="project_videos" class="section_content">
+						<% 	for(var n=data.videos.length, i=0; i < n; i++)
+							{
+								videoData = data.videos[i];
+								%><a href="<%= videoData.url %>"><p><%= videoData.desc %></p></a>
+						<%	}  %>
+						</div>
+				</div>
+				<%}%>
+				<!------------------------->
+				<!-- Source Code Section -->
+			<% if(data.source && data.source.length > 0)
+			{ %>
+				<div class="project_section" id="source_section">
+					<div class="project_section_title">
+						Source Code
+					</div>
+					<div id="project_source" class="section_content">
+					<% 	for(var n=data.source.length, i=0; i < n; i++)
+						{
+							sourceData = data.source[i];
+							%><a href="<%= sourceData.url %>"><p><%=sourceData.desc %></p></a>
+					<%	}  %>
+					</div>
+				</div>
+			    <%}%>
+				<!---------------------->
+				<!-- Releases Section -->
+		<% if(data.releases && data.releases.length > 0)
+			{ %>
+				<div class="project_section" id="release_section">
+					<div class="project_section_title">
+						Releases
+					</div>
+					<div id="project_release" class="section_content">
+					<% 	for(var n=data.releases.length, i=0; i < n; i++)
+						{
+							releaseData = data.releases[i];
+							%><a href="<%= releaseData.url %>"><p><%=docData.desc %></p></a>
+					<%	}  %>
+					</div>
+				</div>
+		  <%}%>
+				<!----------------------->
+				<!-- Documentation Section -->
+			<% if(data.documentation && data.documentation.length > 0)
+			{ %>
+				<div class="project_section" id="doc_section">
+					<div class="project_section_title">
+						Documentation
+					</div>
+					<div id="project_doc" class="section_content">
+					<% 	for(var n=data.documentation.length, i=0; i < n; i++)
+						{
+							docData = data.documentation[i];
+							%><a href="<%= docData.url %>"><p><%=docData.desc %></p></a>
+					<%	}  %>
+					</div>
+				</div>
+		<%  }  %>
+				<!----------------------------->
+				<!-- Links Section -->
+		<% if(data.links && data.links.length > 0)
+			{ %>
+				<div class="project_section" id="links_section">
+					<div class="project_section_title">
+						Links
+					</div>
+					<div id="project_links" class="section_content">
+					<% 	for(var n=data.links.length, i=0; i < n; i++)
+						{
+							linkData = data.links[i];
+							%><a href="<%= linkData.url %>"><p><%=linkData.desc %></p></a>
+					<%	}  %>
+					</div>
+				</div>
+		<%}%>
+				<!-------------------->
+				<!-- Return Button -->
+				<div id="return_to_projects">
+					<a href="../projects">
+						<div id="return_container"><div id="return_icon"></div>return to projects</div>
+					</a>
+				</div>
+				<!------------------->
+			</div>
+			<!---------------------->
+		</div>
+		<div class="pure-u-1-24"></div>
+	</div>
+	<div id="screenshot_overlay">
+		<div id="screen_view">
+			<div id="screenshot_box">
+				<img class="screenshot_img"/>
+				<div id="screenshot_close_btn" title="close the screenshot viewer"></div>
+			</div>
+		</div>
+		<div id="screenshot_info">
+			<div id="screen_desc"><p></p></div>
+			<div id="screen_selector_circles">
+				<!-- 'screen_selector' class divs go in here for the circles w/id of 'screen_selector_[index]'  -->
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	data = {screenshots : <%- JSON.stringify(data.screenshots) %> };
+</script>
+<script src="../js/yui/yui/yui-min.js"></script>
+<script src="../js/city_parallax.js"></script>
+<script src="../js/load_project_info.js"></script>
+<script src="../js/screenshot-view.js"></script>
+</body>
+</html>

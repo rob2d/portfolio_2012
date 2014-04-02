@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='en'>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<head>
+		<%	//determine the relative path based on the section for references
+			relPath = (section == 'view_project') ? '../' : '';			
+		%>
+		<title><%= title + " [robftw.com] " %></title>
+		<link href="<%= relPath %>css/fonts/stylesheet.css" rel="stylesheet" type="text/css">
+		<link href="<%= relPath %>css/pure-min.css" rel="stylesheet" type="text/css">
+		<link href="<%= relPath %>css/main.css" rel="stylesheet" type="text/css">
+		<!-- write section-specific stylesheet -->
+		<link href=<% switch (section)
+		{
+			case "projects" :      { %>"css/projects.css"<% }    break; 	
+			case "about" :         { %>"css/about.css"<% }       break;
+			case "cv" :            { %>"css/resume.css"<% }      break;
+			case "view_project" :  { %>"../css/project_info.css"<% }break;
+		} %> rel="stylesheet" type="text/css">
+	</head>
+	<body>
+
+	<!-- Start of Header -->
+	<div id="header_wrapper">
+	    <div id="header" class="pure-g-r">
+			<div id="nav_menu" class="pure-u-1-3">
+			<%  //define the header sections/files
+				sectionTitles = ["About", "Projects", "CV", "Projects"];
+				sectionPaths  = ["about", "projects", "cv", "view_project"]; 
+				%>
+				
+			<%	for(var i = 0; i < sectionTitles.length - 1; i++){%>
+				<p><% if(section == sectionPaths[i]){%>[<%= sectionTitles[i] %>]<%} 
+					else {%><a href="<%= (relPath + sectionPaths[i]) %>"><%= sectionTitles[i] %></a><% } %></p> <%
+				} %>
+			</div>
+			<div id="name_and_contact" class="pure-u-2-3">
+				<div id="name_and_title">
+					<p id='name'>Robert Concepción III</p>
+					<p id='title'>Software Developer</p>
+				</div>
+				<div id="hdr_btns">
+					<a href="mailto: robert.concepcion.iii@gmail.com?subject='Viewed your site, would like to get in touch'"><div id="gmail_btn" class="hdr_btn"
+						 title="Contact me via e-mail"></div></a>
+					<a href="tel: 646-326-6799"><div id="phone_btn" class="hdr_btn"
+						 title="Contact me via phone(from mobile device)"></div></a>
+					<a href="http://www.linkedin.com/pub/robert-concepcion-iii/14/b71/66b/"><div id="linkedin_btn" class="hdr_btn"
+						 title="Visit my Linked-In"></div></a>
+					<a href="http://www.github.com/rob2d"><div id="github_btn" class="hdr_btn"
+															   title="View my GitHub account"></div></a>
+				</div>
+	   	 	</div>
+		</div>
+	</div>
+		<!-- End of Header -->

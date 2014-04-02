@@ -1,0 +1,337 @@
+/* Color Scheme */
+
+@headerBgColor   : #33332A;
+@headerTxtColor  : #BDD7C4;
+@headerHTxtColor : #D7ECDC;
+@mainBgColor     : #E6E6E6;
+@sectionHdrColor : #245431;
+@sectionULColor  : #666E6E;
+@sectionDescColor: #485E79;
+@sectionTxtColor : #4D4D47;
+@sectionHLColor  : #485E79;
+
+@linkTxtColor    : #308637;
+
+@overlayBgHL     : rgba(31,31,31, 0.65);
+@overlayBg       : rgba(200, 200, 200, 0.75);
+
+@overlayFromColor  : rgba(170, 170, 170, 0.70);
+@overlayToColor  : rgba(230, 230, 230, 0.70);
+
+
+.overlayBg
+{
+  background: -moz-linear-gradient(45deg,  @overlayFromColor 0%, @overlayFromColor 1%, @overlayToColor 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,@overlayFromColor), color-stop(1%,@overlayFromColor), color-stop(100%,@overlayToColor)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  @overlayFromColor 0%,@overlayFromColor 1%,@overlayToColor 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  @overlayFromColor 0%,@overlayFromColor 1%,@overlayToColor 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  @overlayFromColor 0%,@overlayFromColor 1%,@overlayToColor 100%); /* IE10+ */
+  background: linear-gradient(45deg,  @overlayFromColor 0%,@overlayFromColor 1%,@overlayToColor 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6aaaaaa', endColorstr='#a6e6e6e6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+#projects_content
+{
+  text-align: center;
+}
+
+.pure-u-1-24
+{
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 0 !important;
+  }
+
+.pure-u-3-24
+{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+.project_container
+{
+  position: relative;
+  margin: 0 auto;
+  max-width: 286px;
+  min-width: 286px;
+  height: auto;
+  text-align: center;
+
+  p
+  {
+    font-size: 14pt;
+    font-family: 'quicksandregular';
+    color: @linkTxtColor;
+    transition: color 0.5s;
+    -moz-transition: color 0.5s;
+    -webkit-transition: color 0.5s;
+    max-width: 230px;
+    text-align: right;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  .smtxt
+  {
+    font-size: 12pt;
+  }
+
+  margin-top: 24px;
+
+  .thumbnail_pic
+  {
+    width: 256px;
+    height: 154px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    border: 2px transparent solid;
+    transition: border 0.25s;
+    margin-left: 13px;
+    margin-right:13px;
+  }
+
+  .platform_icons
+  {
+    position: relative;
+    display: table-cell;
+    float: right;
+    right: 10px;
+    padding-top: 0px;
+    vertical-align: middle;
+
+    .p_icon
+    {
+      position: relative;
+      display: inline-block;
+      top: 6px;
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+      background-size: 100% 100%;
+    }
+
+    *
+    {
+      transition: background 0.75s ease-out;
+      -moz-transition: background 0.75s ease-out;
+    }
+
+    .p_android { background: url('../img/project_info/platform_android.png'); }
+    .p_gtv { background: url('../img/project_info/platform_gtv.png'); }
+    .p_web { background: url('../img/project_info/platform_web.png'); }
+    .p_windows { background: url('../img/project_info/platform_windows.png'); }
+  }
+}
+
+.project_container:hover
+{
+  .thumbnail_pic
+  {
+    position: relative;
+    border: 2px #00FF00 solid;
+  }
+
+  p
+  {
+    color: #00CC00;
+  }
+
+  .platform_icons
+  {
+    *
+    {
+      transition: background 0.75s ease;
+      -moz-transition: background 0.75s ease;
+    }
+    .p_android { background: url('../img/project_info/platform_android_h.png'); }
+    .p_gtv { background: url('../img/project_info/platform_gtv_h.png'); }
+    .p_web { background: url('../img/project_info/platform_web_h.png'); }
+    .p_windows { background: url('../img/project_info/platform_windows_h.png'); }
+  }
+}
+
+.project_container:active
+{
+  #project_contents *
+  {
+    transition: background 0.75s ease-out;
+  }
+
+  #project_contents .thumbnail_pic
+  {
+    position: relative;
+    border: 2px (@linkTxtColor + #33A) solid;
+  }
+
+  #project_contents p
+  {
+    color: @linkTxtColor + #33A;
+  }
+}
+
+.project_container:hover .project_overlay_box
+{
+  transition: all 0.375s ease 0.35s
+}
+
+.project_overlay_box
+{
+  position: absolute;
+  width: auto;
+  overflow: hidden;
+  top: -20px;
+  left: 200px;
+  height: auto;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  display: none;
+  opacity: 0;
+  z-index: 500;
+  transition: all 0.375s ease 0s;
+  visibility: visible;
+
+  @media (max-width: 700px)
+  {
+    visibility: hidden;
+    border: none;
+  }
+
+  .bubble_triangle
+  {
+    position: absolute;
+    display: inline-block;
+    bottom: 104px;
+    left: 0px;
+    padding: 0;
+    margin: 0;
+    width: 0px;
+    height: 0px;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+
+    border-right:20px solid rgba(175, 175, 175, 0.65);
+  }
+
+  .trigger_mouseout
+  {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    height: 100%;
+    width: 80%;
+  }
+}
+
+.project_info_overlay
+{
+  position: relative;
+  display: inline-block;
+  border-radius: 12px ;
+  left: 8px;
+  width: 376px;
+  height: auto;
+  margin: 0;
+  text-align: left;
+  overflow: hidden;
+  color: #000000;
+
+  .overlayBg;
+
+  *
+  {
+    font-family: 'quicksandregular';
+    font-size: 16pt;
+    color: #000000;
+  }
+
+  .info_listing
+  {
+    position: relative;
+    margin-left: 24px;
+    margin-right: 24px;
+    margin-top: 14px;
+    width: 100%;
+
+    .info_subtitle
+    {
+      font-size: 18pt !important;
+      font-weight: bold !important;
+      color: #000000;
+      max-width: 320px;
+      margin-right: 24px;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+    }
+    .info_subtxt
+    {
+      font-size: 15pt;
+      margin-left: 18px;
+      margin-right: 18px;
+      padding: 0;
+      width: 100%;
+      max-width: 320px;
+      color: #000000;
+      text-align: left;
+    }
+  }
+
+  .click_for_info
+  {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    margin-top: 16px;
+    margin-top: 12px;
+    padding-bottom: 16px;
+    padding-top: 12px;
+    text-align: right;
+
+    p
+    {
+      position: relative;
+      font-family: 'quicksandbold';
+      left: -24px;
+      width: 100%;
+      max-width: 100%;
+      text-align: right;
+      font-size: 12pt;
+      color: #000000;
+    }
+  }
+}
+//when an overlay grows from right to left
+.r_overlay
+{
+  right: 8px;
+  left:  0px;
+  padding-right: 20px;
+
+  .bubble_triangle
+  {
+    position: absolute;
+    display: inline-block;
+    bottom: 104px;
+    left: 396px;
+
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left:20px solid rgba(220, 220, 220, 0.65);
+    border-right: none;
+  }
+
+  .trigger_mouseout
+  {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 80%;
+  }
+}

@@ -1,0 +1,205 @@
+
+/* background opacity mixin created by helpse on stackoverflow */
+.background-opacity(@color, @opacity) {
+    @rgba-color: rgba(red(@color), green(@color), blue(@color), @opacity);
+
+    background-color: @rgba-color;
+
+    // Hack for IE8:
+    background: none\9; // Only IE8
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d')", argb(@rgba-color),argb(@rgba-color))); // IE9 and down
+    // Problem: Filter gets applied twice in IE9.
+    // Solution:
+    &:not([dummy]) {
+      filter: progid:DXImageTransform.Microsoft.gradient(enabled='false'); // Only IE9
+    }
+}
+
+.bgL1 
+{ 
+	background: rgba(255, 255, 255, 0.1);
+}
+.bgL2 
+{ 
+	.background-opacity(#ffffff, 0.2); 
+}
+
+.bgD1 
+{
+	background: rgba(0, 0, 0, 0.025);
+}
+
+
+/* Color Scheme */
+
+@headerBgColor   : #33332A;
+@headerTxtColor  : #BDD7C4;
+@headerHTxtColor : #D7ECDC;
+@mainBgColor     : #E6E6E6;
+@sectionHdrColor : #244431;
+@sectionULColor  : #666E6E;
+@sectionDescColor: #486A5E;
+@sectionTxtColor : #4D4D47;
+@sectionHLColor  : #485E79;
+
+
+
+@import "main.css";
+
+.rsection_title
+{
+    font-size: 19pt;
+    font-family: 'quicksandregular';
+    margin-bottom: 0px;
+    margin-top: 4px;
+    margin-left: 16px;
+    margin-right: 4px;
+    padding: 0 !important;
+    color: @sectionHdrColor;
+}
+
+.rsection_subtitle
+{
+  border-bottom: 2px solid @headerTxtColor;
+  padding: 0;
+  margin-top: 0px;
+  margin-bottom: 4px;
+
+  p
+  {
+    font-family: 'quicksandregular';
+    font-size: 14pt;
+    padding-top: 0px;
+    margin-bottom: 6px;
+    margin-top:    6px;
+    color: @sectionHdrColor;
+
+  }
+
+  .subtext
+  {
+    font-family: 'quicksandregular';
+    font-size: 12pt;
+    margin-top: 0px;
+    margin-bottom: 4px;
+    padding: 0;
+    color: @sectionHdrColor;
+    margin-left: 32px;
+  }
+  
+  .bgL1;
+}
+
+.rsection_contents
+{
+  p
+  {
+    font-size: 12pt !important;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    line-height: 24px;
+    font-family: 'quicksandregular';
+    text-wrap: normal;
+    color: @sectionTxtColor;
+    font-weight: normal;
+  }
+
+  li
+  {
+    font-size: 12pt !important;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    line-height: 24px;
+    font-family: 'quicksandregular';
+    text-wrap: normal;
+    color: @sectionTxtColor;
+    font-weight: normal
+  }
+
+  .content_bg1;
+}
+
+.rsection_contents_note
+{
+  p
+  {
+    font-size: 13pt !important;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    line-height: 24px;
+    font-family: 'quicksandregular';
+    text-wrap: normal;
+    color: @sectionTxtColor;
+    font-weight: normal;
+  }
+
+  li
+  {
+    font-size: 11pt !important;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    margin-left: 8px;
+    line-height: 24px;
+    font-family: 'quicksandregular';
+    text-wrap: normal;
+    color: @sectionTxtColor;
+    font-weight: normal;
+  }
+  .bgL2;
+}
+
+.hdr_bg1
+{
+  .bgL1;
+}
+
+.content_bg1
+{
+  .bgL2;
+}
+
+.darker_bg1
+{
+ .bgD1;
+}
+
+.rsimple_highlight
+{
+  color: @sectionHLColor;
+  font-family: 'quicksandregular';
+  text-align: right;
+  position: relative;
+  right: 0;
+}
+
+.rsection_header
+{
+  font-family: 'quicksandlight';
+  border-bottom: 2px solid @sectionULColor + #444;
+  padding-bottom: 4px;
+  padding-top:   4px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  margin-left: 12px;
+}
+
+.rexp_location
+{
+  .darker_bg1;
+  .rsection_subtitle;
+}
+
+#download_pdf
+{
+  position: relative;
+  top: 2px;
+  width: 36px;
+  height: 30px;
+  display: inline-block;
+  background-image: url('../img/nav/pdf_icon.gif');
+  background-size: cover;
+  margin-left: 16px;
+}
+
+#download_pdf:hover{background-image: url('../img/nav/pdf_icon_h.gif');}
+#download_pdf:active{background-image: url('../img/nav/pdf_icon_a.gif');}

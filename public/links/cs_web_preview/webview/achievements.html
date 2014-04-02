@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<!-- tailor the site to our Android App WebView(and for web testing...) -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=800, height=480, initial-scale=1, maximum-scale=1, user-scalable=yes, target-densitydpi=high-dpi">
+		<title>Testing a Page in an Android WebView</title>
+		<link href="main.css" rel="stylesheet"/>
+		<script src="js/jquery/jquery-1.9.1.min.js"></script>
+		<!-- helper script to parse GET data from URL -->
+		<script src="js/general/parse_get.js"></script>
+		
+		<!-- Load our Achievement and Achievement Data Objects as well as the App Achievement Data -->
+		<script src="js/achievements/ach.js"></script>
+		<script src="js/achievements/cs_ach_v093.js"></script>
+		<script src="js/achievements/ach_logic.js"></script><!-- jquery & modifying content for the page -->
+		<script>			
+			//DOM related functions for writing the page more conveniently
+			var printAchievement = function(ach)
+			{
+				document.writeln("<div class='a_field' id='a_field_" + ach.getIndex() +"' ach_index= '" + ach.getIndex() + "'>");
+				document.writeln("<p>" + ach.getName() + "</p>");
+				document.writeln("<div class='star_bar'>");
+				for(var i = 0; i < ach.getLvlCount(); i++)
+				{
+					if(i < ach.getLevel())
+					{
+						document.writeln("<div class='a_star'></div>");
+					}
+					else
+					{
+						document.writeln("<div class='e_star'></div>");
+					}
+				}
+				document.writeln("</div></div>");
+			}
+			
+			function printAchievements()
+			{
+				for(var i = 0; i < achData.achievements.length; i++)
+				{
+					printAchievement(achData.achievements[i]);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="main_div">
+			<p id="title_txt">Achievements</p>
+			<div id="a_listings_box">
+				<script>printAchievements();</script>
+			</div>
+			<div id="a_details_box">
+				<p id="a_details_txt"></p>
+				<img id="a_details_img"></img>
+				<div id="lvl_box"><div id="lvl_progress"></div></div>
+				<p id="lvl_no_txt">Level 4</p>
+			</div>
+			<div id="overall_txt">
+				<div class="af_selected a_star"></div>
+				<p style="padding-left:16px">
+					<script>
+						//initialize w first achievement highlighted
+						achLogic.selectAchievement(0);
+						
+						//write the status of all achievements obtained
+						document.writeln(achData.achStarCount  +"/" + achData.achMaxStarCount);
+					</script>
+					</p>
+			</div>
+			<div id="scroll_up"></div>
+			<div id="scroll_down"></div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,273 @@
+*
+{
+    padding: 0;
+    margin: 0;
+    font-family: 'SFIntellivised';
+    color: rgb(255, 255, 255);
+}
+
+html, body
+{
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+}
+
+#main_div
+{
+    display: block;
+    position: fixed;
+    width: 800px;
+    height: 480px;
+    background-image: url('../gfx/title_screen/background.jpg');
+    text-align: center;
+}
+
+#a_listings_box
+{
+    position: absolute;
+    left: -80px;
+    top:  128px;
+    padding: 8px;
+    display: inline-block;
+    width: 300px;
+    height: 100%;
+    margin: 0 auto;
+    text-shadow: 0.1em 0.1em 0.5em rgba(0, 0, 0, 100);
+}
+
+#a_details_box
+{
+    position: absolute;
+    top: 96px;
+    width: 432px;
+    height: 256px;
+    text-align: left;
+    left: 256px;
+    border: solid 1px rgb(0, 0, 200);
+    background-color:rgba(0,0,0,0.35);
+    padding: 16px;
+    text-align: center;
+}
+
+#a_details_box p
+{
+    color: rgb(225, 235, 255);
+    text-shadow: 0.01em 0.01em 0.3em rgb(120, 140,200);
+    text-align: left;
+    font-size: 1.5em;
+    padding-bottom: 12px;
+    height: 36px;
+    line-height: 85%;
+    vertical-align: bottom;
+    text-align: center;
+}
+
+#a_details_img
+{
+    width: 368px;
+    height: 168px;
+    border: 0px solid rgb(220, 220,150);
+    text-align:center;
+    margin-bottom: 8px;
+    background-color: rgba(0, 0, 0, 0.25);
+    background: url('../gfx/achievements_scr/no_art.png');
+}
+
+#lvl_box
+{
+    position: relative;
+    display: inline-block;
+    width: 280px;
+    height: 24px;
+    left:   6px;
+    border: 2px solid rgb(120, 140, 255);
+    vertical-align: top;
+    border-radius: 0.25em;
+    background-color : rgba(0, 0, 0, 0.5);
+}
+
+#lvl_progress
+{
+    width: 40%;
+    height: 100%;
+    background-color: rgb(120, 140, 255);
+}
+
+
+#lvl_no_txt
+{
+    color: rgb(220, 220, 150);
+    position: relative;
+    display: inline-block;
+    width: 80px;
+    vertical-align: bottom;
+    left: 6px;
+    top:  3px;
+    font-size: 0.5em;
+}
+
+#title_txt
+{
+    text-align: center;
+    margin: 0 auto;
+    padding: 16px;
+    font-size: 3em;
+    text-shadow: 0.01em 0.01em 0.3em rgb(120, 140,200);
+}
+
+#overall_txt
+{
+    color:  rgb(225, 235, 255);
+    text-shadow: 0.01em 0.01em 0.3em rgb(120, 140,200);
+    position: absolute;
+    bottom: 16px;
+    right:  16px;
+    vertical-align: middle;
+}
+
+#scroll_down
+{
+    position: absolute;
+    bottom:   112px;
+    right:    24px;
+    width:    37px;
+    height:   48px;
+    background-size: cover;
+    background-image: url('../gfx/menu_screens/scroll_down.png');
+}
+
+#scroll_down:hover
+{
+    background-image: url('../gfx/menu_screens/scroll_down_h.png');
+}
+
+#scroll_down:active
+{
+    background-image: url('../gfx/menu_screens/scroll_down_s.png');
+}
+
+#scroll_up
+{
+    position: absolute;
+    top:      112px;
+    right:    24px;
+    width:    37px;
+    height:   48px;
+    background-size: cover;
+    background-image: url('../gfx/menu_screens/scroll_up.png');
+}
+
+#scroll_up:hover
+{
+    background-image: url('../gfx/menu_screens/scroll_up_h.png');
+}
+
+#scroll_up:active
+{
+    background-image: url('../gfx/menu_screens/scroll_up_s.png');
+}
+
+p
+{
+    display: inline-block;
+    font-size: 1.75em;
+    vertical-align: bottom;
+    rgb(225, 235, 255);
+}
+
+
+.a_field
+{
+    position: absolute;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 16px;
+}
+
+.a_field p
+{
+    display: inline-block;
+    width: 248px;
+    font-size: 1.5em;
+    rgb(225, 235, 255);
+}
+
+a_field p p
+{
+    display: inline-block;
+    width: 64px;
+}
+
+.star_bar
+{
+    display:  inline-block;
+    width: 248px;
+}
+
+.af_selected *
+{
+    color: rgb(255, 210, 80);
+    -webkit-transition: all 0.35s ease;
+    -moz-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+}
+
+.af_selected .a_star
+{
+    background-image: url('../gfx/achievements_scr/a_star_selected.png');
+    background-size: cover;
+}
+
+
+.a_star
+{
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background-image: url('../gfx/achievements_scr/a_star.png');
+    background-size: contain;
+    background-position-y: center;
+}
+
+.e_star
+{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    background-image: url('../gfx/achievements_scr/a_star_empty.png');
+    background-size: contain;
+    background-position-y: center;
+}
+
+.right_brace
+{
+    position: fixed;
+    right: -128px;
+    margin-left: 256px;
+}
+.left_brace
+{
+    position: fixed;
+    left: 256px;
+}
+
+.a_complete
+{
+    position: relative;
+    display: inline-block;
+    width: 64px;
+    top: -16px;
+    padding-left: 16px;
+    color: rgb(120, 150, 200);
+}
+
+/* default menu options font */
+@font-face 
+{   
+    font-family: 'SFIntellivised';    
+    src: url('../fonts/sfintellivised.ttf');     
+    font-weight: normal;    
+    font-style: normal;
+}

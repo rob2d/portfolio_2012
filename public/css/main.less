@@ -1,0 +1,339 @@
+
+/* Color Scheme */
+
+@headerBgColor   : #33332A;
+@headerTxtColor  : #BDD7C4;
+@headerHTxtColor : #D7ECDC;
+@mainBgColor     : #fafcff;
+@sectionHdrColor : #243124;
+@sectionULColor  : #666E6E;
+@sectionDescColor: #505E50;
+@sectionTxtColor : #4D4D47;
+@skylineColor    : #dfe9df;
+@skyBgColor      : #f2f3fa;
+
+.pure-u-1-24
+{
+  margin: 0 !important;
+
+}
+
+html, body
+{
+  width: 100%;
+  height: 100%;
+  background-color: @skyBgColor;
+}
+
+
+*
+{
+  font-family     :'exo_2.0bold';
+  padding         : 0;
+  margin          : 0;
+}
+
+a
+{
+  text-decoration: none;
+}
+
+p
+{
+  padding: 0;
+  margin:  0;
+}
+
+#header_wrapper
+{
+  width: 100%;
+  margin: 0 auto;
+  background-color: @headerBgColor;
+}
+#header
+{
+  position: relative;
+  background-color: @headerBgColor;
+  color           : @headerTxtColor;
+  width           : 100%;
+  font-size       : 10px;
+  min-width       : 290px;
+  max-width       : 920px;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 8px;
+  padding-bottom: 12px;
+  @media(max-width: 470px)
+  {
+    top: -36px;
+  }
+  @media (max-width: 767px)
+  {
+    padding-bottom: 0px;
+  }
+
+  @media (min-width: 470px) and (max-width: 767px)
+  {
+    top: -36px;
+  }
+
+  #nav_menu
+  {
+    position: relative;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+
+
+    p
+    {
+      position:   relative;
+      text-align: left;
+      display: inline-block;
+      padding-left: 8px;
+      padding-right:8px;
+      margin-top: 2px;
+      margin-bottom: 8px;
+      font-family: 'exo_2.0regular';
+      font-size: 15pt;
+      top:       38px;
+
+      /** medium width state */
+      @media (min-width: 470px) and (max-width: 767px)
+      {
+        top:        96px;
+        font-size: 14pt;
+      }
+      /** smallest width state */
+      @media(max-width: 469px)
+      {
+        top: 138px;
+      }
+    }
+
+    a
+    {
+      font-family: 'exo_2.0regular';
+      color: @headerTxtColor;
+    }
+    a:hover { color: @headerHTxtColor; }
+  }
+
+  #name_and_contact
+  {
+    position: relative;
+    text-align: center;
+    right: -24px;
+
+    @media(max-width: 767px)
+    {
+      right: 0;
+    }
+
+    #name_and_title
+    {
+      display: inline-block;
+      padding-right: 12px;
+
+      #name
+      {
+        font-size: 20pt;
+        font-family: 'exo_2.0semi_bold';
+        padding:   0;
+        margin :   0;
+        text-align: right;
+      }
+
+      #title
+      {
+        font-size: 15pt;
+        padding:   0;
+        margin :   0;
+        text-align: right;
+
+        @media (max-width: 469px)
+        {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  #hdr_btns
+  {
+    display:     inline-block;
+    text-align:  right;
+    max-width:       100%;
+
+    .hdr_btn
+    {
+      display: inline-block;
+      width: 38px;
+      height:38px;
+      margin-left: 4px;
+      transition: background 0.25s ease-in-out;
+    }
+
+    #gmail_btn
+    { background-image: url('../img/menu/contact_gmail.png'); }
+    #gmail_btn:hover
+    { background-image: url('../img/menu/contact_gmail_h.png'); }
+
+    #phone_btn
+    { background-image: url('../img/menu/contact_phone.png'); }
+    #phone_btn:hover
+    { background-image: url('../img/menu/contact_phone_h.png'); }
+
+    #linkedin_btn
+    { background-image: url('../img/menu/view_linkedin.png'); }
+    #linkedin_btn:hover
+    { background-image: url('../img/menu/view_linkedin_h.png'); }
+
+    #github_btn
+    { background-image: url('../img/menu/view_github.png'); }
+    #github_btn:hover
+    { background-image: url('../img/menu/view_github_h.png'); }
+  }
+}
+
+#skyline
+{
+  position: fixed;
+  top: 340px;
+  width: 100%;
+  height: auto;
+  background-size: 100% auto;
+  background-repeat: repeat-x;
+  background-image: url('../img/main/nyc_skyline.png');
+}
+
+#skyline_bottom
+{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  background-color: @skylineColor;
+  background-size: 100% 100%;
+}
+
+#main_wrapper
+{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background-image: url('../img/main/sky.png');
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+}
+
+#main_content
+{
+  position: relative;
+  max-width: 810px;
+  min-width: 280px;
+  height: auto;
+  margin: 0 auto;
+  padding-bottom: 0px;
+  
+  @media(max-width: 834px)
+  {
+    margin-left: 16px;
+    margin-right:16px;
+  }
+
+  .section_header
+  {
+    font-family: 'quicksandlight';
+    border-bottom: 2px solid @sectionULColor;
+    padding-bottom: 4px;
+    padding-top:   16px;
+    padding-left:  4px;
+
+    .section_title
+    {
+      font-family: 'quicksandregular';
+      color: @sectionHdrColor;
+      display: inline-block;
+      font-size: 25pt;
+      padding-bottom: 4px;
+      margin: 0;
+      @media (max-width: 768px)
+      {
+        text-align: center;
+      }
+
+      p
+      {
+        font-family: 'quicksandregular';
+        color: @sectionHdrColor;
+        display: inline-block;
+        font-size: 25pt;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        margin: 0;
+        margin-right: 8px;
+        transition: color 0.25s ease-out;
+
+        @media (max-width: 768px)
+        {
+          text-align: center;
+        }
+      }
+    }
+
+    .section_desc
+    {
+      font-family: 'quicksandlight';
+      text-align: right;
+      color: @sectionDescColor;
+      display: inline-block;
+      font-size: 22pt;
+      padding-bottom: 0;
+      margin: 0;
+      @media (max-width: 768px)
+      {
+        display: none;
+        text-align: center;
+      }
+    }
+  }
+
+  .section_content
+  {
+    margin: 0 auto;
+    height: auto;
+    padding-bottom: 0px;
+    @media(max-width: 834)
+    {
+      margin-left: 16px;
+      margin-right:16px;
+    }
+
+    i
+    {
+      font-family: 'quicksandregular';
+      font-size: 14pt;
+    }
+  }
+
+  .block-text
+  {
+    font-size: 16pt;
+    font-family: 'quicksandregular';
+    text-wrap: normal;
+    text-justify: kashida;
+    color: @sectionTxtColor;
+  }
+}
+
+.hidden
+{
+  visibility: hidden;
+}
+
+.hidden_start
+{
+  visibility: hidden;
+}

@@ -1,0 +1,102 @@
+	<% section = "projects" %>
+	<% include partials/header %>
+<div id="main_wrapper">
+	<!-- City Skyline -->
+	<div id="skyline"></div>
+	<div id="skyline_bottom"></div>
+	<!------------------>
+	<div id="main_content">
+		<div class="section_header pure-g-r pure-u-1">
+			<p class="section_title pure-u-1-3">Projects</p>
+			<p class="section_desc pure-u-2-3">select a project for more info</p>
+		</div>
+		<div class="pure-u-1-24"></div>
+		<div class="section_content pure-u-22-24" id="projects_content">
+
+			<div class="pure-g-r">
+				<!-- BAMF -->
+				<div class="project_container pure-u-1-2" id="project0" pid="bamf">
+					<img src="img/projects/preview_imgs/bamf_thumb.png" class="thumbnail_pic"/>
+					<div class="platform_icons">
+						<p class="title_txt smtxt">Browser Application Multimedia Framework</p>
+						<div class="p_icon p_web" title="Available on Web Browsers"></div>
+					</div>
+				</div>
+				<!--------------------------------------------->
+				<!-- Animation Editor/.JS Generator -->
+				<div class="project_container pure-u-1-2" id="project1" pid="sprite_edit">
+					<img src="img/projects/preview_imgs/sprite_edit_thumb.png" class="thumbnail_pic"/>
+					<div class="platform_icons">
+						<p class="title_txt">Sprite Editor</p>
+						<div class="p_icon p_web" title="Available on Web Browsers"></div>
+					</div>
+				</div>
+				<!--------------------------------------------->
+
+				<!-- Color Shafted -->
+				<div class="project_container pure-u-1-2" id="project2" pid="colorshafted">
+					<img src="img/projects/preview_imgs/cs_thumb.png" class="thumbnail_pic"/>
+					<div class="platform_icons">
+						<p class="title_txt">Color Shafted!</p>
+						<div class="p_icon p_android" title="Available on Android OS"></div>
+						<div class="p_icon p_gtv" title="Available on GTV"></div>
+					</div>
+				</div>
+				<!--------------------------------------------->
+
+				<!-- CS Achievements -->
+				<div class="project_container pure-u-1-2" id="project3" pid="csachievements">
+					<img src="img/projects/preview_imgs/csa_thumb.png" class="thumbnail_pic"/>
+					<div class="platform_icons">
+						<p class="title_txt">CS Achievements</p>
+						<div class="p_icon p_android" title="Available on Android OS"></div>
+						<div class="p_icon p_web" title="Available on GTV"></div>
+					</div>
+				</div>
+				<!--------------------------------------------->
+
+				<!-- Chinese Poker Online -->
+				<div class="project_container pure-u-1-2" id="project4" pid="cpo">
+					<img src="img/projects/preview_imgs/cp_thumb.png" class="thumbnail_pic"/>
+					<div class="platform_icons">
+						<p class="title_txt">Chinese Poker Online</p>
+						<div class="p_icon p_android" title="Available on Android OS"></div>
+					</div>
+				</div>
+				<!--------------------------------------------->
+
+				<!-- Sonic Physics Engine -->
+				<div class="project_container pure-u-1-2" id="project5" pid="sonic360">
+					<img src="img/projects/preview_imgs/s360_thumb.png" class="thumbnail_pic"/>
+					<div class="platform_icons">
+						<p class="title_txt">Sonic Physics Engine</p>
+						<div class="p_icon p_windows" title="Available on Windows"></div>
+					</div>
+				</div>
+				<!--------------------------------------------->
+			</div>
+		</div>
+		<div class="pure-u-1-24"></div>
+	</div>
+</div>
+<div class="project_overlay_box" id="origin_overlay">
+	<div class="bubble_triangle"></div>
+	<div class="project_info_overlay">
+		<div class="info_listing">
+			<p class="info_subtitle tech_title">Technologies:</p>
+			<p class="info_subtxt tech_txt">Android SDK, Java, XML, PHP, JSON, MySQL</p>
+		</div>
+		<div class="info_listing">
+			<p class="info_subtitle platform_title">Platforms:</p>
+			<p class="info_subtxt platform_txt">Android 2.2 & Up, GoogleTV</p>
+		</div>
+		<div class="click_for_info"><p>click project for more info</p></div>
+		<div class="trigger_mouseout"></div>
+	</div>
+</div>
+</body>
+<script src="js/yui/yui/yui-min.js"></script>
+<script src="js/city_parallax.js"></script>
+<script src="data/project_data.js"></script>
+<script src="js/projects_browse.js"></script>
+</html>
